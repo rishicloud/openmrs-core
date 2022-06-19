@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        label 'rishi12'
-    }
+    agent {label 'rishi12'}
     triggers{
         // Triggers pipeline for every 1hr
         pollSCM '0 * * * *'
@@ -17,7 +15,7 @@ pipeline {
         }
         stage('Build the code and sonarqube-analysis'){
         steps {
-            withSonarQubeEnv('sonar-9.3.0') {
+            withSonarQubeEnv('SONAR_9.3') {
                  sh 'mvn clean package sonar:sonar'
               }
 
