@@ -16,7 +16,8 @@ pipeline {
         stage('Build the code and sonarqube-analysis'){
         steps {
             withSonarQubeEnv('SONAR_9.3') {
-                 sh '/usr/local/apache-maven-3.8.6/mvn clean package sonar:sonar'
+                 sh '/usr/local/apache-maven-3.8.6/bin/mvn package'
+				  sh '/usr/local/apache-maven-3.8.6/bin/mvn sonar:sonar -Dsonar.login=552df7b317f3eacb2fca289afb839d5f46ee7b06'
               }
 
             }
